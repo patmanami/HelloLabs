@@ -19,7 +19,8 @@ Word/pattern/sequence matcher written by Patrick Boggs
 
 =head1 DESCRIPTION
 
-From a dictionary file passed in with a list of words, determine a list of 4 letter sequences that only appear in exactly one word. If the pattern appears twice, that word is not printed. Files are run through a cleaning routine to standardize the file, and outputs are in UTF8.
+From a dictionary file passed in with a list of words, determine a list of 4 letter sequences that only appear in exactly one word. If the pattern appears twice, that word is not printed. Files are run through a cleaning routine to standardize the file, and outputs are in UTF8. Two files are created called 'words' and 'sequences' which have exactly one pattern/word per line, and match in the same order (ie pattern found -> word) on a single row.
+
 
 =head2 USAGE
 
@@ -122,23 +123,33 @@ foreach my $testword (keys %words) {
 
 }
 
-#############################
+###################################################
 # Produce output for report
-#############################
+# Write out two separate words and sequences files
+###################################################
 
-printf("%-15s %-15s\n", '\'sequences\'', '\'words\'');
-print "\n";
+# printf("%-15s %-15s\n", '\'sequences\'', '\'words\'');
+# print "\n";
+
+open("SEQUENCES", ">", "./sequences") ||
+  die "Can't open sequences file for writing:$!";
+open("WORDS", ">", "./words") ||
+  die "Can't open words file for writing:$!";
 
 foreach my $pat (sort keys %final_patterns) {
 
-  # Only print out patterns that had one match 
+  # Only print out patterns that had one match
   # in alphabetical order by the pattern name
-  if($final_patterns{$pat}{count} == 1 ) { 
-    printf("%-15s %-15s\n", $pat, $final_patterns{$pat}{word});
+  if($final_patterns{$pat}{count} == 1 ) {
+    print SEQUENCES $pat . "\n";
+    print WORDS $final_patterns{$pat}{word} . "\n";
+    # printf("%-15s %-15s\n", $pat, $final_patterns{$pat}{word});
   }
 
 }
 
+close WORDS;
+close SEQUENCES;
 
 ####################################
 # Word manipulation/clean up routine
@@ -150,12 +161,11 @@ foreach my $pat (sort keys %final_patterns) {
 
 Standardize words before running through parser
 
-What this routine does:
+What this routine can do:
 
   - standardize case 
   - remove leading and trailing spaces
-  - remove punctuation (unknown rule/currently commented out); 
-    things like apostrophes unsure to remove or include in test
+  - remove punctuation things like apostrophes 
   - encode as UTF8
 
 =cut
@@ -164,12 +174,11 @@ sub cleanup_word {
 
   my $unclean_word = shift;
 
-  # - standardize case 
-  # - remove punctuation (unknown rule); things like apostrophes 
-  #   unsure to remove or include in test
-  # - remove leading and trailing spaces
+  # - standardize case (off)
+  # - remove punctuation things like apostrophes (off)
+  # - remove leading and trailing spaces (on)
 
-  $unclean_word   = lc($unclean_word);
+  # $unclean_word   = lc($unclean_word);
   $unclean_word  =~ s/^\s+//; # remove leading spaces
   $unclean_word  =~ s/\s+$//; # remove trailing spaces
 
