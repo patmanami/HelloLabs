@@ -75,6 +75,12 @@ while(<FH>) {
   # Put word through cleaning cycle sub
   $word = &cleanup_word($word);
 
+  # Keep a copy of the original word for printing later
+  my $original_word = $word;
+
+  # Remove all non-letters from word
+  $word =~ s/[^a-zA-Z]//g;
+
   # Skip the dictionary word if duplicated 
   # next if ( exists($words{$words} ); # short non-print version
   if( exists($words{$word}) ) {
@@ -91,7 +97,8 @@ while(<FH>) {
   }
 
   # Store all viable input words; also for duplicate testing
-  $words{$word}++;
+  # $words{$word}++;
+  $words{$word}{original_word} = $original_word;
 
 }
 
@@ -115,6 +122,7 @@ foreach my $testword (keys %words) {
    foreach my $pattern (@patterns) {
      $final_patterns{$pattern}{count}++;
      $final_patterns{$pattern}{word} = $testword;
+     $final_patterns{$pattern}{original_word} = $words{$testword}{original_word};
    }
 
 }
@@ -138,7 +146,7 @@ foreach my $pat (sort keys %final_patterns) {
   # in alphabetical order by the pattern name
   if($final_patterns{$pat}{count} == 1 ) { 
     print SEQUENCES $pat . "\n";
-    print WORDS $final_patterns{$pat}{word} . "\n";
+    print WORDS $final_patterns{$pat}{original_word} . "\n";
     # printf("%-15s %-15s\n", $pat, $final_patterns{$pat}{word});
   }
 
@@ -180,7 +188,7 @@ sub cleanup_word {
   my $unclean_word = shift;
 
   # - standardize case (off)
-  # - remove punctuation (unknown rule); things like apostrophes (off)
+  # - remove non-letter characters (off)
   # - remove leading and trailing spaces (on)
 
   # Keep case insensitive

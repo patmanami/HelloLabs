@@ -10,5 +10,6 @@ use Test::Simple tests => 2;
 ok cleanup_word('testword') eq 'testword', 'word returned test'; 
 
 # Check to see if file is lowercased and leading
-# & trailing spaces are removed
+# & trailing spaces are removed. Should fail as original
+# word needs to stay case insensitive
 ok cleanup_word(' TESTWORD ') eq 'testword', 'cleanup working test';

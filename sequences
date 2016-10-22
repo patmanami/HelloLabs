@@ -1,25 +1,7 @@
-'Bri
-'Del
-'Don
-'Dwy
-'Har
-'Lea
-'Nei
-'She
-'Sul
-'art
-'clo
-'eta
-'oei
-'oeu
-'vov
-.S.A
-10th
 AAAS
 AACP
 ANSI
 ASTM
-AT&T
 Aarh
 Aaro
 Abab
@@ -322,7 +304,6 @@ Buzz
 Byer
 Byrd
 Byrn
-C&GS
 CACM
 CATV
 CCNY
@@ -1019,10 +1000,7 @@ Hyad
 Hyan
 Hyde
 Hyma
-I'll
-I've
 IEEE
-IT&T
 Iber
 Icar
 Idah
@@ -1198,7 +1176,6 @@ Kurt
 Kuwa
 Kyle
 Kyot
-L'vo
 LIFO
 Laba
 Labr
@@ -1312,6 +1289,7 @@ Lusa
 Lutz
 Luxe
 Luzo
+Lvov
 Lydi
 Lyke
 Lyle
@@ -1564,19 +1542,19 @@ Null
 Nult
 Nume
 Nyqu
-O'Br
-O'De
-O'Do
-O'Dw
-O'Ha
-O'Le
-O'Ne
-O'Sh
-O'Su
 OBox
+OBri
+ODel
+ODon
+ODwy
 OEFL
+OHar
+OLea
+ONei
 OPEC
 OSHA
+OShe
+OSul
 Ober
 Ocea
 Octa
@@ -1681,7 +1659,6 @@ Perr
 Pert
 Peug
 Pfiz
-Ph.D
 Phel
 Pher
 Phip
@@ -1859,7 +1836,7 @@ Rwan
 Ryan
 Rydb
 Ryde
-SC&G
+SCGS
 SIAM
 SUNY
 Sach
@@ -2144,11 +2121,10 @@ Tynd
 Typh
 Tyra
 Tyso
-U.S.
 UCLA
 UNES
 USAF
-USC&
+USCG
 USDA
 USGS
 USIA
@@ -2421,9 +2397,9 @@ adiv
 adix
 adja
 adme
-adn'
 adne
 adno
+adnt
 adob
 ados
 adot
@@ -2532,7 +2508,6 @@ ailt
 ailu
 aime
 aiml
-ain'
 ainb
 aing
 ainh
@@ -2888,8 +2863,6 @@ aswe
 asyg
 asyl
 aszl
-at'l
-at'r
 atap
 atba
 atbe
@@ -2908,11 +2881,11 @@ athk
 aths
 athu
 atka
+atll
 atlo
 atlu
 atno
 atoa
-atre
 atsh
 atsk
 atst
@@ -3009,7 +2982,6 @@ axop
 axse
 axte
 axwo
-ay'l
 ayam
 ayap
 ayas
@@ -3030,6 +3002,7 @@ ayhe
 ayho
 ayis
 ayli
+ayll
 aymo
 ayna
 aypo
@@ -3415,7 +3388,6 @@ calp
 calv
 cama
 cami
-can'
 cans
 capo
 capy
@@ -3708,9 +3680,6 @@ cyca
 cyll
 cyni
 cypr
-d'ar
-d'et
-d'oe
 dabb
 dabo
 dace
@@ -3736,9 +3705,7 @@ datu
 daub
 daun
 dawn
-day'
 dayd
-dayl
 days
 dayt
 daze
@@ -3939,7 +3906,6 @@ doci
 dodg
 dodo
 does
-doeu
 doge
 dogf
 dogh
@@ -3949,7 +3915,6 @@ dois
 dolc
 dolf
 domo
-don'
 dona
 donk
 dono
@@ -4061,7 +4026,6 @@ dwig
 dwil
 dwit
 dwiv
-dy'l
 dyce
 dyea
 dyei
@@ -4077,8 +4041,6 @@ dyse
 dyst
 dyte
 dywi
-e'er
-e've
 eaba
 eaca
 eacr
@@ -4208,7 +4170,7 @@ edir
 edli
 edlo
 edme
-edn'
+ednt
 edos
 edou
 edsh
@@ -4594,6 +4556,7 @@ erck
 erds
 erek
 ereq
+erer
 erev
 erex
 erey
@@ -4657,9 +4620,9 @@ esil
 eski
 esmi
 esmo
-esn'
 esna
 esno
+esnt
 esod
 esoe
 esou
@@ -4802,10 +4765,6 @@ exos
 exqu
 extb
 exub
-ey'd
-ey'l
-ey'r
-ey'v
 eyba
 eybe
 eybo
@@ -4820,13 +4779,16 @@ eyew
 eyfl
 eyfu
 eykj
+eyll
 eylo
 eyon
 eypu
+eyre
 eyro
 eyse
 eyst
 eysu
+eyve
 eywa
 eywe
 ezan
@@ -5393,7 +5355,6 @@ haml
 hamr
 hams
 hamt
-han'
 hany
 haos
 haot
@@ -5412,9 +5373,7 @@ hasm
 hasn
 hasp
 hatk
-hatl
 hatn
-hatr
 hats
 hauc
 haug
@@ -5498,8 +5457,10 @@ heur
 heva
 hewa
 hewn
-heyd
 heye
+heyl
+heyr
+heyv
 hfal
 hfar
 hfin
@@ -5557,8 +5518,8 @@ hird
 hirk
 hiro
 hirp
-his'
 hisa
+hisl
 hisp
 hiss
 hitl
@@ -5615,9 +5576,6 @@ hnog
 hnse
 hnso
 hnut
-ho'd
-ho'l
-ho'v
 hoac
 hoal
 hobg
@@ -5887,8 +5845,8 @@ idig
 idim
 idja
 idmo
-idn'
 idni
+idnt
 idon
 idor
 idos
@@ -6083,7 +6041,6 @@ imso
 imst
 imsu
 imsy
-in't
 inah
 inav
 inba
@@ -6251,7 +6208,6 @@ irvo
 irwe
 irwi
 iryl
-is'l
 isac
 isad
 isag
@@ -6280,9 +6236,10 @@ isim
 isis
 isju
 iski
+isll
 isly
-isn'
 isno
+isnt
 isop
 ispi
 ispy
@@ -6299,8 +6256,6 @@ isur
 isvi
 iswo
 isym
-it'd
-it'l
 itac
 itad
 itae
@@ -6323,6 +6278,7 @@ ithu
 itif
 itiq
 itke
+itll
 itlo
 itmu
 itob
@@ -6687,7 +6643,6 @@ kyri
 kyro
 kysc
 kyus
-l'oe
 laam
 labe
 labu
@@ -7043,6 +6998,7 @@ loav
 lobl
 loce
 lodd
+loei
 loem
 loes
 loff
@@ -7666,7 +7622,6 @@ ndta
 ndth
 ndub
 ndyw
-ne'l
 nead
 neag
 neam
@@ -8073,10 +8028,6 @@ nzib
 nzig
 nzoi
 nzwe
-o'cl
-o'er
-o'll
-o've
 oace
 oadc
 oade
@@ -8148,6 +8099,7 @@ ockc
 ockd
 ockf
 ockn
+oclo
 ocoa
 ocot
 ocow
@@ -8203,6 +8155,7 @@ odwo
 odya
 odye
 odyg
+odyl
 odyt
 oebu
 oeco
@@ -8422,7 +8375,6 @@ onam
 onap
 onav
 onba
-one'
 onea
 onef
 oneh
@@ -8682,10 +8634,6 @@ otur
 otwe
 otwi
 otwo
-ou'd
-ou'l
-ou'r
-ou'v
 ouac
 ouak
 ouba
@@ -8701,11 +8649,11 @@ ouin
 oula
 oulf
 ouli
-oull
 oulm
 oulo
 oupi
 ouqu
+oure
 ourf
 ourm
 ourr
@@ -9287,8 +9235,6 @@ rdto
 rdue
 rduo
 rdur
-re'l
-re'r
 reag
 reap
 rebl
@@ -9780,7 +9726,6 @@ ryth
 rywh
 rywi
 rzia
-s'll
 sabo
 sabr
 saco
@@ -10164,7 +10109,7 @@ stlu
 stme
 stmo
 stmu
-stn'
+stnt
 stnu
 stoe
 stof
@@ -10227,7 +10172,6 @@ sylu
 syth
 syzy
 szlo
-t're
 tabe
 tabr
 tacc
@@ -10663,9 +10607,6 @@ tzog
 tzpa
 tzro
 tzsc
-u'll
-u're
-u've
 uPon
 uabb
 uado
@@ -11258,7 +11199,6 @@ veli
 velr
 vema
 vemb
-ven'
 venb
 venf
 venh
@@ -11389,10 +11329,6 @@ wdri
 wdro
 wdry
 wdus
-we'd
-we'l
-we'r
-we'v
 wean
 weas
 weav
@@ -11418,7 +11354,6 @@ werv
 weso
 wess
 wetl
-weve
 wfal
 wfin
 wfla
@@ -11433,9 +11368,11 @@ whan
 whif
 whig
 whoa
+whod
 whoe
 whop
 whor
+whov
 whow
 whup
 widd
@@ -11506,7 +11443,6 @@ woeb
 woef
 wofo
 woll
-won'
 wont
 woop
 woso
@@ -11645,8 +11581,6 @@ xxon
 xyla
 xyli
 xylo
-y're
-y've
 yaci
 yade
 yadh
@@ -11805,7 +11739,10 @@ yosi
 yost
 yota
 yoto
+youd
+youl
 yous
+youv
 yove
 yozo
 ypas

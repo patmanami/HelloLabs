@@ -2,14 +2,14 @@
 
 package WordRip;
 
-use strict;
-use warnings;
-use Encode qw(encode_utf8); # assuming mysql built with utf8
-
 use base 'Exporter';
 our @EXPORT = qw(cleanup_word);
 
+use strict;
+use warnings;
+use Encode qw(encode_utf8); # assuming mysql built with utf8
 # use Data::Dumper;
+use Benchmark; # calculate program time
 
 =pod
 
@@ -20,7 +20,6 @@ Word/pattern/sequence matcher written by Patrick Boggs
 =head1 DESCRIPTION
 
 From a dictionary file passed in with a list of words, determine a list of 4 letter sequences that only appear in exactly one word. If the pattern appears twice, that word is not printed. Files are run through a cleaning routine to standardize the file, and outputs are in UTF8. Two files are created called 'words' and 'sequences' which have exactly one pattern/word per line, and match in the same order (ie pattern found -> word) on a single row.
-
 
 =head2 USAGE
 
@@ -38,6 +37,8 @@ dictionary file on the command line
 my $letter_count_min = 4;
 my %words            = ();
 my %final_patterns   = ();
+my $start_time       = Benchmark->new;
+my $print_benchmark  = 0;
 
 # Allow for dynamic dictionary file, else default. Clean up the 
 # input just in case.
@@ -79,6 +80,12 @@ while(<FH>) {
   # Put word through cleaning cycle sub
   $word = &cleanup_word($word);
 
+  # Keep a copy of the original word for printing later
+  my $original_word = $word;
+
+  # Remove all non-letters from word
+  $word =~ s/[^a-zA-Z]//g;
+
   # Skip the dictionary word if duplicated 
   # next if ( exists($words{$words} ); # short non-print version
   if( exists($words{$word}) ) {
@@ -95,7 +102,8 @@ while(<FH>) {
   }
 
   # Store all viable input words; also for duplicate testing
-  $words{$word}++;
+  # $words{$word}++;
+  $words{$word}{original_word} = $original_word;
 
 }
 
@@ -119,6 +127,7 @@ foreach my $testword (keys %words) {
    foreach my $pattern (@patterns) {
      $final_patterns{$pattern}{count}++;
      $final_patterns{$pattern}{word} = $testword;
+     $final_patterns{$pattern}{original_word} = $words{$testword}{original_word};
    }
 
 }
@@ -131,18 +140,18 @@ foreach my $testword (keys %words) {
 # printf("%-15s %-15s\n", '\'sequences\'', '\'words\'');
 # print "\n";
 
-open("SEQUENCES", ">", "./sequences") ||
+open("SEQUENCES", ">", "./sequences") || 
   die "Can't open sequences file for writing:$!";
-open("WORDS", ">", "./words") ||
+open("WORDS", ">", "./words") || 
   die "Can't open words file for writing:$!";
 
 foreach my $pat (sort keys %final_patterns) {
 
-  # Only print out patterns that had one match
+  # Only print out patterns that had one match 
   # in alphabetical order by the pattern name
-  if($final_patterns{$pat}{count} == 1 ) {
+  if($final_patterns{$pat}{count} == 1 ) { 
     print SEQUENCES $pat . "\n";
-    print WORDS $final_patterns{$pat}{word} . "\n";
+    print WORDS $final_patterns{$pat}{original_word} . "\n";
     # printf("%-15s %-15s\n", $pat, $final_patterns{$pat}{word});
   }
 
@@ -150,6 +159,15 @@ foreach my $pat (sort keys %final_patterns) {
 
 close WORDS;
 close SEQUENCES;
+
+# Benchmark - print if desired
+my $end_time   = Benchmark->new;
+my $total_time = timediff($end_time, $start_time);
+
+if($print_benchmark) {
+  print "\nPARSING TOOK=", timestr($total_time) ,"\n";
+}
+
 
 ####################################
 # Word manipulation/clean up routine
@@ -165,7 +183,7 @@ What this routine can do:
 
   - standardize case 
   - remove leading and trailing spaces
-  - remove punctuation things like apostrophes 
+  - remove punctuation (things like ',_,.)
   - encode as UTF8
 
 =cut
@@ -175,9 +193,10 @@ sub cleanup_word {
   my $unclean_word = shift;
 
   # - standardize case (off)
-  # - remove punctuation things like apostrophes (off)
+  # - remove non-letter characters (off)
   # - remove leading and trailing spaces (on)
 
+  # Keep case insensitive
   # $unclean_word   = lc($unclean_word);
   $unclean_word  =~ s/^\s+//; # remove leading spaces
   $unclean_word  =~ s/\s+$//; # remove trailing spaces
